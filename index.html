@@ -1,0 +1,928 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 - 工艺工程师</title>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2c5282;
+            --accent: #3182ce;
+            --bg-light: #f7fafc;
+            --bg-white: #ffffff;
+            --text-dark: #1a202c;
+            --text-medium: #4a5568;
+            --text-light: #718096;
+            --border: #e2e8f0;
+            --border-light: #edf2f7;
+            --tag-bg: #ebf4ff;
+            --tag-text: #2c5282;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --radius: 10px;
+            --radius-sm: 6px;
+            --transition: 0.2s ease;
+            --font-heading: 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Noto Sans SC', sans-serif;
+            --font-body: 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Noto Sans SC', sans-serif;
+            --max-width: 1000px;
+            --left-col-width: 320px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: #eef2f7;
+            background-image: radial-gradient(ellipse at 20% 20%, #dce3ed 0%, transparent 60%), radial-gradient(ellipse at 80% 70%, #dce3ed 0%, transparent 60%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 30px 16px 60px;
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* 主容器 */
+        .resume-container {
+            width: 100%;
+            max-width: var(--max-width);
+            background: var(--bg-white);
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg), 0 0 0 1px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            position: relative;
+        }
+
+        /* ========== 左侧栏 ========== */
+        .sidebar {
+            width: var(--left-col-width);
+            min-width: var(--left-col-width);
+            background: #f8fafb;
+            background-image: linear-gradient(180deg, #f0f4f8 0%, #f8fafb 8%, #f8fafb 100%);
+            border-right: 1px solid var(--border-light);
+            padding: 40px 28px 36px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            position: relative;
+            z-index: 1;
+        }
+
+            /* 侧边栏顶部装饰线 */
+            .sidebar::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 4px;
+                background: linear-gradient(90deg, var(--primary), var(--accent), #63b3ed);
+                border-radius: 0;
+            }
+
+        /* 头像区域 */
+        .avatar-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding-bottom: 8px;
+        }
+
+        .avatar-circle {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+            box-shadow: 0 6px 20px rgba(26, 54, 93, 0.25);
+            position: relative;
+            flex-shrink: 0;
+        }
+
+            .avatar-circle::after {
+                content: '';
+                position: absolute;
+                inset: -5px;
+                border-radius: 50%;
+                border: 2px solid rgba(49, 130, 206, 0.25);
+                pointer-events: none;
+            }
+
+        .sidebar-name {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+            line-height: 1.3;
+        }
+
+        .sidebar-title {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-medium);
+            letter-spacing: 0.5px;
+            background: #edf2f7;
+            padding: 5px 14px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        /* 侧边栏各个区块 */
+        .sidebar-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .sidebar-section-title {
+            font-family: var(--font-heading);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--text-light);
+            position: relative;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+            .sidebar-section-title::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 32px;
+                height: 2px;
+                background: var(--accent);
+                border-radius: 1px;
+            }
+
+            .sidebar-section-title .icon-dot {
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background: var(--accent);
+                flex-shrink: 0;
+            }
+
+        /* 联系方式 */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13.5px;
+            color: var(--text-medium);
+            padding: 7px 0;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+            .contact-item:hover {
+                color: var(--accent);
+            }
+
+        .contact-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: #edf2f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 14px;
+            color: var(--primary-light);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover .contact-icon {
+            background: #dbeafe;
+            color: var(--accent);
+        }
+
+        .contact-text {
+            line-height: 1.3;
+        }
+
+        .contact-label {
+            font-size: 10px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* 技能标签 */
+        .skills-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .skill-tag {
+            font-size: 12px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 16px;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            letter-spacing: 0.3px;
+            transition: var(--transition);
+            cursor: default;
+            white-space: nowrap;
+            border: 1px solid transparent;
+        }
+
+            .skill-tag:hover {
+                background: #dbeafe;
+                border-color: #bcd7f7;
+                transform: translateY(-1px);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .skill-tag.highlight {
+                background: #1a365d;
+                color: #fff;
+                font-weight: 600;
+            }
+
+                .skill-tag.highlight:hover {
+                    background: #2c5282;
+                }
+
+        /* 教育 */
+        .edu-block {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .edu-school {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text-dark);
+            letter-spacing: 0.3px;
+        }
+
+        .edu-major {
+            font-size: 13px;
+            color: var(--text-medium);
+        }
+
+        .edu-date {
+            font-size: 11.5px;
+            color: var(--text-light);
+            letter-spacing: 0.5px;
+            margin-top: 1px;
+        }
+
+        .edu-degree {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+            background: #ebf4ff;
+            padding: 2px 10px;
+            border-radius: 10px;
+            margin-top: 3px;
+            letter-spacing: 0.5px;
+        }
+
+        /* 语言 / 证书小项 */
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            padding: 5px 0;
+            border-bottom: 1px dotted var(--border-light);
+            color: var(--text-medium);
+        }
+
+            .info-row:last-child {
+                border-bottom: none;
+            }
+
+            .info-row .label {
+                font-weight: 500;
+                color: var(--text-dark);
+            }
+
+            .info-row .value {
+                color: var(--text-light);
+                font-size: 12px;
+            }
+
+        /* ========== 右侧主体 ========== */
+        .main-content {
+            flex: 1;
+            padding: 40px 34px 36px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            position: relative;
+            z-index: 1;
+        }
+
+            /* 右侧顶部装饰 */
+            .main-content::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 60px;
+                height: 60px;
+                background: linear-gradient(135deg, transparent 50%, rgba(49, 130, 206, 0.04) 50%);
+                border-radius: 0 16px 0 0;
+                pointer-events: none;
+                z-index: 0;
+            }
+
+        .section-block {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .section-icon-bar {
+            width: 4px;
+            height: 28px;
+            background: linear-gradient(180deg, var(--accent), #63b3ed);
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .section-label {
+            font-family: var(--font-heading);
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .section-divider {
+            flex: 1;
+            height: 1px;
+            background: var(--border-light);
+            margin-left: 8px;
+        }
+
+        /* 工作经历卡片 */
+        .experience-card {
+            position: relative;
+            padding: 20px 22px 18px 28px;
+            margin-bottom: 16px;
+            background: #fafcfd;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+            .experience-card:hover {
+                box-shadow: var(--shadow-md);
+                border-color: #d4dfe8;
+                transform: translateY(-1px);
+            }
+
+            .experience-card::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 16px;
+                bottom: 16px;
+                width: 3px;
+                background: linear-gradient(180deg, var(--accent), #90cdf4);
+                border-radius: 0 3px 3px 0;
+            }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .exp-company {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text-dark);
+            letter-spacing: 0.3px;
+        }
+
+        .exp-role {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--primary-light);
+            background: #ebf4ff;
+            padding: 3px 12px;
+            border-radius: 14px;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .exp-date {
+            font-size: 12.5px;
+            color: var(--text-light);
+            letter-spacing: 0.5px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .exp-details {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+            .exp-details li {
+                position: relative;
+                padding-left: 18px;
+                margin-bottom: 7px;
+                font-size: 13.5px;
+                color: var(--text-medium);
+                line-height: 1.65;
+                letter-spacing: 0.2px;
+            }
+
+                .exp-details li:last-child {
+                    margin-bottom: 0;
+                }
+
+                .exp-details li::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 8px;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background: var(--accent);
+                    opacity: 0.7;
+                    transition: var(--transition);
+                }
+
+                .exp-details li:hover::before {
+                    opacity: 1;
+                    transform: scale(1.4);
+                    background: var(--primary-light);
+                }
+
+        /* 教育经历卡片（右侧也可以放） */
+        .edu-card {
+            padding: 16px 20px;
+            background: #fafcfd;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+            .edu-card:hover {
+                box-shadow: var(--shadow-sm);
+            }
+
+        .edu-card-left {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+            .edu-card-left .school-name {
+                font-weight: 700;
+                font-size: 15px;
+                color: var(--text-dark);
+            }
+
+            .edu-card-left .major-name {
+                font-size: 13px;
+                color: var(--text-medium);
+            }
+
+        .edu-card-right {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            align-items: flex-end;
+        }
+
+            .edu-card-right .edu-badge {
+                font-size: 11px;
+                font-weight: 600;
+                color: #fff;
+                background: var(--primary-light);
+                padding: 4px 12px;
+                border-radius: 12px;
+                letter-spacing: 0.5px;
+            }
+
+            .edu-card-right .edu-time {
+                font-size: 12px;
+                color: var(--text-light);
+                letter-spacing: 0.3px;
+            }
+
+        /* 自我评价 */
+        .summary-text {
+            font-size: 14px;
+            color: var(--text-medium);
+            line-height: 1.75;
+            letter-spacing: 0.3px;
+            padding: 16px 20px;
+            background: #fafcfd;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-light);
+            border-left: 3px solid var(--accent);
+        }
+
+        /* ========== 响应式 ========== */
+        @media (max-width: 768px) {
+            .resume-container {
+                flex-direction: column;
+                border-radius: 12px;
+            }
+
+            .sidebar {
+                width: 100%;
+                min-width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border-light);
+                padding: 28px 20px 24px;
+                gap: 20px;
+            }
+
+                .sidebar::before {
+                    height: 3px;
+                }
+
+            .avatar-circle {
+                width: 70px;
+                height: 70px;
+                font-size: 28px;
+            }
+
+            .sidebar-name {
+                font-size: 20px;
+            }
+
+            .main-content {
+                padding: 24px 18px 28px;
+                gap: 20px;
+            }
+
+                .main-content::before {
+                    display: none;
+                }
+
+            .experience-card {
+                padding: 16px 14px 14px 20px;
+            }
+
+            .exp-header {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .exp-company {
+                font-size: 15px;
+            }
+
+            .exp-role {
+                font-size: 12px;
+                padding: 2px 10px;
+            }
+
+            .exp-details li {
+                font-size: 12.5px;
+            }
+
+            .edu-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+
+            .edu-card-right {
+                align-items: flex-start;
+            }
+
+            .section-label {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px 6px 30px;
+            }
+
+            .resume-container {
+                border-radius: 8px;
+            }
+
+            .sidebar {
+                padding: 20px 14px 18px;
+                gap: 16px;
+            }
+
+            .main-content {
+                padding: 18px 12px 20px;
+                gap: 16px;
+            }
+
+            .experience-card {
+                padding: 12px 10px 12px 16px;
+                margin-bottom: 10px;
+                border-radius: 8px;
+            }
+
+            .exp-details li {
+                font-size: 12px;
+                margin-bottom: 5px;
+                padding-left: 14px;
+            }
+
+            .skill-tag {
+                font-size: 11px;
+                padding: 4px 9px;
+            }
+
+            .section-label {
+                font-size: 12px;
+                letter-spacing: 1px;
+            }
+        }
+
+        /* ========== 打印样式 ========== */
+        @media print {
+            body {
+                background: #fff;
+                padding: 0;
+                margin: 0;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+                border: none;
+            }
+
+            .sidebar {
+                background: #f9fafb;
+                border-right: 1px solid #ddd;
+            }
+
+                .sidebar::before {
+                    background: #1a365d;
+                }
+
+            .experience-card,
+            .edu-card,
+            .summary-text {
+                border: 1px solid #ddd;
+                background: #fff;
+                box-shadow: none;
+            }
+
+                .experience-card:hover,
+                .edu-card:hover,
+                .skill-tag:hover {
+                    transform: none;
+                    box-shadow: none;
+                }
+
+            .skill-tag {
+                border: 1px solid #ccc;
+                background: #f5f5f5;
+                color: #333;
+            }
+
+                .skill-tag.highlight {
+                    background: #1a365d;
+                    color: #fff;
+                }
+
+            @page {
+                margin: 8mm;
+                size: A4;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+
+        <!-- ==================== 左侧栏 ==================== -->
+        <aside class="sidebar">
+
+            <!-- 头像 & 姓名 -->
+            <div class="avatar-section">
+                <div class="avatar-circle">易</div>
+                <div class="sidebar-name">易高宏</div>
+                <span class="sidebar-title">
+                    性别：男
+                    年龄：25岁
+                </span>
+            </div>
+
+            <!-- 联系方式 -->
+            <div class="sidebar-section">
+                <div class="sidebar-section-title">
+                    <span class="icon-dot"></span>联系方式
+                </div>
+                <a class="contact-item" href="tel:13800000000" title="拨打电话">
+                    <span class="contact-icon">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" /></svg>
+                    </span>
+                    <span class="contact-text">
+                        <span class="contact-label">手机</span><br>15883651756
+                    </span>
+                </a>
+                <a class="contact-item" href="mailto:zhangong@email.com" title="发送邮件">
+                    <span class="contact-icon">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M22 4L12 13 2 4" /></svg>
+                    </span>
+                    <span class="contact-text">
+                        <span class="contact-label">邮箱</span><br>2733671277@qq.com
+                    </span>
+                </a>
+            </div>
+
+            <!-- 专业技能 -->
+            <div class="sidebar-section">
+                <div class="sidebar-section-title">
+                    <span class="icon-dot"></span>专业技能
+                </div>
+                <div class="skills-wrap">
+                    <span class="skill-tag highlight">FMEA</span>
+                    <span class="skill-tag highlight">控制计划</span>
+                    <span class="skill-tag">SOP撰写</span>
+                    <span class="skill-tag">过程特性分析</span>
+                    <span class="skill-tag">MES系统</span>
+                    <span class="skill-tag">工艺验证</span>
+                    <span class="skill-tag">设备选型采购</span>
+                    <span class="skill-tag">CAD识图</span>
+                    <span class="skill-tag">质量管控</span>
+                    <span class="skill-tag">故障排查</span>
+                    <span class="skill-tag">精益生产</span>
+                    <span class="skill-tag">项目管理</span>
+                </div>
+            </div>
+
+            <!-- 证书 & 语言 -->
+            <div class="sidebar-section">
+                <div class="sidebar-section-title">
+                    <span class="icon-dot"></span>技能
+                </div>
+            
+                <div class="info-row">
+                    <span class="label">计算机</span>
+                    <span class="value"> Office 精通</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">CAD软件</span>
+                    <span class="value">AutoCAD / SolidWorks</span>
+                </div>
+            </div>
+
+            <!-- 求职意向 -->
+            <div class="sidebar-section">
+                <div class="sidebar-section-title">
+                    <span class="icon-dot"></span>求职意向
+                </div>
+              
+                <div class="info-row">
+                    <span class="label">期望薪资</span>
+                    <span class="value">税后5000-7000</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">工作性质</span>
+                    <span class="value">全职</span>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- ==================== 右侧主体 ==================== -->
+        <main class="main-content">
+
+            <!-- 自我评价 -->
+            <section class="section-block">
+                <div class="section-header">
+                    <span class="section-icon-bar"></span>
+                    <span class="section-label">个人概述</span>
+                    <span class="section-divider"></span>
+                </div>
+                <p class="summary-text">
+                    拥有<strong>1年+工艺工程师经验</strong>，熟悉汽车零配件及电子制造行业。具备扎实的<strong>过程文件撰写能力</strong>（FMEA、控制计划、SOP），擅长<strong>工艺设备设计选型与采购</strong>，能够独立完成样品工艺验证与优化。熟练运用<strong>MES系统</strong>搭建工艺路线，推动生产过程信息化管理。具有较强的设备故障排查能力，能快速响应并解决生产现场问题，减少停机时间。本科汽车服务工程专业背景，理论与实践结合紧密。
+                </p>
+            </section>
+
+            <!-- 工作经历 -->
+            <section class="section-block">
+                <div class="section-header">
+                    <span class="section-icon-bar"></span>
+                    <span class="section-label">工作经历</span>
+                    <span class="section-divider"></span>
+                </div>
+
+                <!-- 工作1：寅家电子 -->
+                <article class="experience-card">
+                    <div class="exp-header">
+                        <div>
+                            <span class="exp-company">浙江寅家电子科技有限公司</span>
+                        </div>
+                        <span class="exp-date">2024.09 — 2025.12</span>
+                    </div>
+                    <span class="exp-role">工艺工程师</span>
+                    <ul class="exp-details">
+                        <li>主导过程文件撰写，涵盖<strong>过程特性分析、FMEA、控制计划及SOP</strong>，确保工艺文件的完整性与准确性，为生产标准化奠定基础。</li>
+                        <li>负责工艺制造设备的<strong>设计与采购</strong>，依据生产需求定制合适设备，保障生产流程顺畅，有效控制采购成本与交付周期。</li>
+                        <li>开展样品工艺过程<strong>验证与完善</strong>工作，通过反复测试优化工艺参数，显著提升产品质量与良率。</li>
+                        <li>排查并维修工艺设备问题，迅速解决生产中的<strong>设备故障</strong>，缩短停机时间，保障产线稳定运行。</li>
+                        <li>维护<strong>MES系统</strong>的量产工序文件，搭建合理工艺路线，实现生产过程信息化管理，提高生产效率与数据准确性。</li>
+                    </ul>
+                </article>
+
+                <!-- 工作2：康普瑞 -->
+                <article class="experience-card">
+                    <div class="exp-header">
+                        <div>
+                            <span class="exp-company">浙江康普瑞汽车零配件有限公司</span>
+                        </div>
+                        <span class="exp-date">2024.07 — 2024.09</span>
+                    </div>
+                    <span class="exp-role">管培生</span>
+                    <ul class="exp-details">
+                        <li>严格按照图纸要求操作机器设备，完成汽车零配件的<strong>精密加工</strong>，确保产品尺寸公差符合规范。</li>
+                        <li>协助生产现场管理，学习并实践<strong>标准化作业流程</strong>，快速适应制造企业生产环境，积累一线实操经验。</li>
+                    </ul>
+                </article>
+            </section>
+
+            <!-- 教育经历 -->
+            <section class="section-block">
+                <div class="section-header">
+                    <span class="section-icon-bar"></span>
+                    <span class="section-label">教育经历</span>
+                    <span class="section-divider"></span>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-card-left">
+                        <span class="school-name">成都工业学院</span>
+                        <span class="major-name">汽车服务工程 · 本科</span>
+                    </div>
+                    <div class="edu-card-right">
+                        <span class="edu-badge">全日制本科</span>
+                        <span class="edu-time">2020.09 — 2024.06</span>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
